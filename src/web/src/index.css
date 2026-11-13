@@ -1,17 +1,18 @@
 :root {
-  --bg: #eef3f2;
-  --fg: #1c2321;
-  --muted: #6b7a76;
-  color-scheme: light;
-}
+  --space: #07080b;
+  --space-raised: #0d0f14;
+  --ink: #ece7dc;
+  --ink-muted: #8b877c;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #101514;
-    --fg: #e6eeec;
-    --muted: #8a9a96;
-    color-scheme: dark;
-  }
+  --gold-deep: #7a5a14;
+  --gold: #d4a63a;
+  --gold-bright: #f6dc8b;
+  --gold-glow: rgba(212, 166, 58, 0.35);
+
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  color-scheme: dark;
 }
 
 * {
@@ -26,28 +27,154 @@ body,
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  background: var(--space);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* ---------- Home layout ---------- */
 
 .home {
-  height: 100%;
+  min-height: 100%;
   display: grid;
-  place-content: center;
-  text-align: center;
-  gap: 0.5rem;
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 52%, rgba(212, 166, 58, 0.07), transparent 70%),
+    var(--space);
 }
 
-.home h1 {
-  margin: 0;
-  font-weight: 300;
-  font-size: 3rem;
-  letter-spacing: 0.04em;
+.home__header {
+  display: flex;
+  align-items: baseline;
 }
+
+.wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  letter-spacing: 0.06em;
+}
+
+.home__stage {
+  display: grid;
+  align-content: center;
+  gap: 2.25rem;
+}
+
+.home__empty {
+  margin: 0;
+  max-width: 34ch;
+  justify-self: center;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fade-in 1.2s ease 1.4s forwards;
+}
+
+.home__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- The golden line ---------- */
+
+.timeline {
+  position: relative;
+  /* bleed past the page padding so the line spans the full width */
+  margin-inline: calc(-1 * clamp(1.25rem, 3vw, 2.5rem));
+  height: 4px;
+}
+
+.timeline__line,
+.timeline__glow {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  animation: draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.timeline__line {
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--gold-deep) 8%,
+      var(--gold) 30%,
+      var(--gold-bright) 50%,
+      var(--gold) 70%,
+      var(--gold) 100%
+  );
+  border-radius: 2px;
+}
+
+.timeline__glow {
+  inset: -10px 0;
+  background: linear-gradient(
+      90deg,
+      transparent 5%,
+      var(--gold-glow) 50%,
+      var(--gold-glow) 100%
+  );
+  filter: blur(14px);
+  opacity: 0.6;
+}
+
+/* ---------- Status ---------- */
 
 .status {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.status::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--ink-muted);
+  vertical-align: middle;
+}
+
+.status--up::before {
+  background: var(--gold);
+}
+
+.status--down::before {
+  background: #b5503c;
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__line,
+  .timeline__glow {
+    animation: none;
+  }
+
+  .home__empty {
+    animation: none;
+    opacity: 1;
+  }
 }

@@ -39,3 +39,4 @@
 /Users/thivyeshs/lifetime/src/Lifetime.Api/obj/Debug/net10.0/Lifetime.Api.genruntimeconfig.cache
 /Users/thivyeshs/lifetime/src/Lifetime.Api/obj/Debug/net10.0/ref/Lifetime.Api.dll
 /Users/thivyeshs/lifetime/src/Lifetime.Api/obj/Debug/net10.0/Lifetime.F182EBEE.Up2Date
+/Users/thivyeshs/lifetime/src/Lifetime.Api/obj/Debug/net10.0/Lifetime.Api.sourcelink.json

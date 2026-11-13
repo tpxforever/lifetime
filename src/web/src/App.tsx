@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TimelineLine from "./components/TimelineLine";
 
 type Health = { status: string; app: string; photosFolder: string };
 
@@ -15,10 +16,23 @@ export default function App() {
 
   return (
     <main className="home">
-      <h1>lifetime</h1>
-      <p className="status">
-        {error ? "api unreachable" : health ? `api ${health.status}` : "connecting…"}
-      </p>
+      <header className="home__header">
+        <h1 className="wordmark">lifetime</h1>
+      </header>
+
+      <section className="home__stage">
+        <TimelineLine />
+        <p className="home__empty">
+          No rolls yet. Add a folder of photos to your rolls directory to place
+          the first point on your timeline.
+        </p>
+      </section>
+
+      <footer className="home__footer">
+        <span className={`status ${error ? "status--down" : health ? "status--up" : ""}`}>
+          {error ? "api unreachable" : health ? "api connected" : "connecting"}
+        </span>
+      </footer>
     </main>
   );
 }

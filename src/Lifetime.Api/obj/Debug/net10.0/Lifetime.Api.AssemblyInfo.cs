@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lifetime.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e54aa3757a8a31e17eca3fd8759c4d50f878ea18")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lifetime.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lifetime.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

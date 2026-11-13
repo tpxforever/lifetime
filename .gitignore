@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# .NET
+bin/
+obj/
+*.db
+*.db-shm
+*.db-wal
+.vs/
+*.user
+
+# Rider
+.idea/
+
+# Node
+node_modules/
+dist/
+
+# Built front end (copied into the API on build)
+src/Lifetime.Api/wwwroot/
+
+# Local config
+.env
+appsettings.Development.json

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "h7yLG5a3obs=",
+  "success": true,
+  "projectFilePath": "/Users/thivyeshs/lifetime/src/Lifetime.Api/Lifetime.Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/thivyeshs/.nuget/packages/microsoft.netcore.app.ref/10.0.15/microsoft.netcore.app.ref.10.0.15.nupkg.sha512",
+    "/Users/thivyeshs/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.15/microsoft.aspnetcore.app.ref.10.0.15.nupkg.sha512",
+    "/Users/thivyeshs/.nuget/packages/microsoft.netcore.app.host.osx-arm64/10.0.15/microsoft.netcore.app.host.osx-arm64.10.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}
